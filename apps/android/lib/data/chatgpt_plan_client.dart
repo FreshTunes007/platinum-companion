@@ -90,6 +90,26 @@ Future<Map<String, dynamic>> verifyPlanIdentity(
   }
 }
 
+/// The live Plan Usage gateway can omit Content-Type. An absent header is not
+/// completion evidence: the strict SSE parser still requires a completed
+/// Responses event and nonempty text. Explicit incompatible MIME is rejected.
+Future<String> consumePlanHttpStream(
+  HttpClientResponse result, {
+  void Function(String)? onDelta,
+}) async {
+  if (result.statusCode != 200) {
+    throw PlanUsageFailure('openai_http_${result.statusCode}');
+  }
+  final mime = result.headers.contentType?.mimeType;
+  if (mime != null && mime != 'text/event-stream') {
+    throw const PlanUsageFailure('invalid_stream_content_type');
+  }
+  return consumePlanResponse(
+    result.timeout(const Duration(seconds: 60)),
+    onDelta: onDelta,
+  );
+}
+
 class PlanHttp {
   static final _allowed = <String>{
     'https://auth.openai.com/.well-known/openid-configuration',
@@ -200,16 +220,7 @@ class PlanHttp {
       req.headers.set(HttpHeaders.acceptHeader, 'text/event-stream');
       req.write(jsonEncode(body));
       final result = await req.close();
-      if (result.statusCode != 200) {
-        throw PlanUsageFailure('openai_http_${result.statusCode}');
-      }
-      if (result.headers.contentType?.mimeType != 'text/event-stream') {
-        throw const PlanUsageFailure('invalid_stream');
-      }
-      return consumePlanResponse(
-        result.timeout(const Duration(seconds: 60)),
-        onDelta: onDelta,
-      );
+      return consumePlanHttpStream(result, onDelta: onDelta);
     },
     method: 'POST',
     access: access,
@@ -460,12 +471,13 @@ class ChatGptPlanClient {
     );
   }
 
-  Future<String> access() async {
+  Future<String> access({bool forceRefresh = false}) async {
     if (account == null || account!['access_token'] == null) {
       throw const PlanUsageFailure('reauth_required');
     }
     final expiry = DateTime.tryParse(account!['expires'] ?? '');
-    if (_vault['pendingRefresh'] != null ||
+    if (forceRefresh ||
+        _vault['pendingRefresh'] != null ||
         expiry == null ||
         expiry.isBefore(DateTime.now().add(const Duration(minutes: 2)))) {
       _refreshing ??= _refresh();
@@ -482,6 +494,12 @@ class ChatGptPlanClient {
       throw const PlanUsageFailure('plan_permission_missing');
     }
     return account!['access_token'];
+  }
+
+  Future<void> refreshSession() async {
+    if (busy) throw const PlanUsageFailure('busy');
+    await access(forceRefresh: true);
+    await loadModels();
   }
 
   Future<void> loadModels() async => models = planModelCatalog(

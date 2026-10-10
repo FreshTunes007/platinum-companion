@@ -433,13 +433,13 @@ void main() {
         ),
       );
       await tester.pumpAndSettle();
-      expect(find.text('AI ещё не подключён'), findsOneWidget);
+      expect(find.text('Чат и подтверждение прохождения'), findsOneWidget);
       expect(
-        find.textContaining('Автоматическое понимание сообщений'),
+        find.textContaining('Личный ChatGPT открывается кнопкой выше'),
         findsOneWidget,
       );
       expect(
-        find.textContaining('Распознавание снимков не подключено'),
+        find.textContaining('Снимки в этом режиме не анализируются'),
         findsOneWidget,
       );
       await tester.scrollUntilVisible(

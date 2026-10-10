@@ -1,7 +1,7 @@
 name: platinum_companion
 description: Private offline trophy companion with validated snapshot import.
 publish_to: none
-version: 0.8.1+14
+version: 0.8.3+16
 environment:
   sdk: ^3.13.5
 dependencies:

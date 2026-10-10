@@ -276,11 +276,11 @@ Future<String> consumePlanResponse(
     pendingBytes = 0;
     if (payload == '[DONE]') return;
     final e = jsonDecode(payload);
-    if (e is! Map) throw const PlanUsageFailure('invalid_stream');
+    if (e is! Map) throw const PlanUsageFailure('invalid_stream_event_shape');
     if (terminal) throw const PlanUsageFailure('events_after_completion');
     if (e['type'] == 'response.output_text.delta') {
       final delta = e['delta'];
-      if (delta is! String) throw const PlanUsageFailure('invalid_stream');
+      if (delta is! String) throw const PlanUsageFailure('invalid_stream_delta');
       text += delta;
       if (utf8.encode(text).length > 64 * 1024) {
         throw const PlanUsageFailure('response_too_large');
