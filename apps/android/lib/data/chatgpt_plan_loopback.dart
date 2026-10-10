@@ -10,11 +10,13 @@ class PlanLoopback {
   final PlanAuthorizationAttempt attempt;
   final _result = Completer<PlanCallback>();
   Timer? _expiry;
+  int requestsReceived = 0;
+  String? lastRejection;
   Future<PlanCallback> get result => _result.future;
   static Future<PlanLoopback> listen({
     required String hostId,
     String? issuedClientId,
-    Duration timeout = const Duration(minutes: 3),
+    Duration timeout = const Duration(minutes: 10),
   }) async {
     final server = await HttpServer.bind(InternetAddress.loopbackIPv4, 0);
     try {
@@ -46,6 +48,7 @@ class PlanLoopback {
   }
 
   Future<void> _handle(HttpRequest request) async {
+    requestsReceived++;
     request.response.headers.set('Cache-Control', 'no-store');
     request.response.headers.set(
       'Content-Security-Policy',
@@ -72,6 +75,7 @@ class PlanLoopback {
       );
       _result.complete(result);
     } on PlanUsageFailure catch (e) {
+      lastRejection = e.code;
       request.response.statusCode = 400;
       request.response.write('Callback rejected.');
       if (e.code == 'authorization_declined' && !_result.isCompleted) {

@@ -1,5 +1,5 @@
-// Prepared SIWC contract. Not wired to the app while private-client admission
-// and Android support are unconfirmed. No credentials or network calls here.
+// Official SIWC protocol for the published open-source Android client.
+// Pure contract: no credentials, storage or network calls in this module.
 import 'dart:convert';
 import 'dart:math';
 
@@ -57,9 +57,9 @@ class PlanAuthorizationAttempt {
       base64UrlEncode(sha256.convert(utf8.encode(verifier)).bytes)
           .replaceAll('=', '');
 
-  Uri authorizationUri({bool selectedPrivateClientApproved = false}) {
-    if (!selectedPrivateClientApproved) {
-      throw const PlanUsageFailure('private_client_admission_pending');
+  Uri authorizationUri({bool officialFlowEnabled = false}) {
+    if (!officialFlowEnabled) {
+      throw const PlanUsageFailure('official_flow_disabled');
     }
     return Uri.https('auth.openai.com', '/api/accounts/authorize', {
       'client_id': issuedClientId ?? 'dynamic_agent_client',
@@ -78,10 +78,10 @@ class PlanAuthorizationAttempt {
 
   Map<String, String> exchangeBody(
     PlanCallback result, {
-    bool selectedPrivateClientApproved = false,
+    bool officialFlowEnabled = false,
   }) {
-    if (!selectedPrivateClientApproved) {
-      throw const PlanUsageFailure('private_client_admission_pending');
+    if (!officialFlowEnabled) {
+      throw const PlanUsageFailure('official_flow_disabled');
     }
     if (result._stateBinding != state) {
       throw const PlanUsageFailure('invalid_callback');
@@ -173,11 +173,11 @@ Map<String, dynamic> planResponseBody({
   required List<Map<String, dynamic>> input,
   required String grantedScopes,
   required bool consent,
-  bool selectedPrivateClientApproved = false,
+  bool officialFlowEnabled = false,
   String? instructions,
 }) {
-  if (!selectedPrivateClientApproved) {
-    throw const PlanUsageFailure('private_client_admission_pending');
+  if (!officialFlowEnabled) {
+    throw const PlanUsageFailure('official_flow_disabled');
   }
   if (!hasDirectPlanGrant(grantedScopes) ||
       !grantedScopes.split(RegExp(r'\s+')).contains('resource.invoke')) {

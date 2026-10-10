@@ -48,7 +48,7 @@ class _ChatGptPlanPageState extends State<ChatGptPlanPage> {
         'Открытая публикация ещё не подтверждена. Вход отключён.',
       'reauth_required' ||
       'invalid_grant' => 'Нужно снова подключить выбранный аккаунт ChatGPT.',
-      'authorization_timeout' => 'Вход не завершён за три минуты. Если браузер вернулся к 127.0.0.1, вернитесь в приложение. Можно начать новую попытку.',
+      'authorization_timeout' => 'Браузер не завершил возврат за десять минут. Начните новую попытку; предыдущий код не повторяется.',
       'subscription_sharing_usage_limit_exceeded' => 'Лимит подписки исчерпан. Новых попыток и платного API-переключения нет.',
       'subscription_sharing_usage_unavailable' =>
         'Использование подписки сейчас недоступно. Платный API не подключён.',
@@ -133,6 +133,24 @@ class _ChatGptPlanPageState extends State<ChatGptPlanPage> {
             padding: const EdgeInsets.symmetric(vertical: 12),
             child: Text(notice!),
           ),
+        if (client.phase != 'not_started')
+          Text(
+            'Этап: ${client.phase} · callback-запросов: ${client.callbackRequests}${client.callbackRejection == null ? '' : ' · отклонён: ${client.callbackRejection}'}',
+          ),
+        TextButton(
+          onPressed: busy
+              ? null
+              : () => _operate(() async {
+                  await client.http.json(
+                    'https://auth.openai.com/.well-known/openid-configuration',
+                  );
+                  await client.http.json(
+                    'https://auth.openai.com/.well-known/jwks.json',
+                  );
+                  notice = 'Сеть OpenAI: discovery и ключи доступны через HTTPS с проверкой сертификатов.';
+                }),
+          child: const Text('Проверить сеть OpenAI'),
+        ),
         for (final a in client.accounts)
           ListTile(
             title: Text(a['label']!),

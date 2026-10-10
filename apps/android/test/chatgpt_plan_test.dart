@@ -56,7 +56,7 @@ void main() {
     final a = attempt(), b = attempt();
     final callback = a.validateCallback(returned(a, client: 'oaiapp_fixture'));
     expect(
-      () => b.exchangeBody(callback, selectedPrivateClientApproved: true),
+      () => b.exchangeBody(callback, officialFlowEnabled: true),
       throwsA(isA<PlanUsageFailure>()),
     );
   });
@@ -89,9 +89,7 @@ void main() {
     'new registration uses own name, exact loopback and fresh S256 state',
     () {
       final a = attempt(), b = attempt();
-      final p = a
-          .authorizationUri(selectedPrivateClientApproved: true)
-          .queryParameters;
+      final p = a.authorizationUri(officialFlowEnabled: true).queryParameters;
       expect(p['client_id'], 'dynamic_agent_client');
       expect(p['agent_name_hint'], 'Platinum Companion');
       expect(p['redirect_uri'], a.callback.toString());
@@ -105,9 +103,7 @@ void main() {
   );
   test('returning sign-in retains issued client and stable host', () {
     final a = attempt(issued: 'oaiapp_fixture');
-    final p = a
-        .authorizationUri(selectedPrivateClientApproved: true)
-        .queryParameters;
+    final p = a.authorizationUri(officialFlowEnabled: true).queryParameters;
     expect(p['client_id'], 'oaiapp_fixture');
     expect(p['ext_agent_host_id'], host);
     expect(p.containsKey('agent_name_hint'), false);
@@ -135,7 +131,7 @@ void main() {
       throwsA(isA<PlanUsageFailure>()),
     );
     final c = a.validateCallback(returned(a, client: 'oaiapp_fixture'));
-    final body = a.exchangeBody(c, selectedPrivateClientApproved: true);
+    final body = a.exchangeBody(c, officialFlowEnabled: true);
     expect(body['client_id'], 'oaiapp_fixture');
     expect(body['redirect_uri'], a.callback.toString());
     expect(c.toString(), isNot(contains('fixture-code')));
@@ -190,7 +186,7 @@ void main() {
       ],
       grantedScopes: planScopes,
       consent: true,
-      selectedPrivateClientApproved: true,
+      officialFlowEnabled: true,
     );
     expect(body.keys.toSet(), {'model', 'input', 'store', 'stream'});
     expect(body['store'], false);
@@ -204,7 +200,7 @@ void main() {
         ],
         grantedScopes: planScopes,
         consent: true,
-        selectedPrivateClientApproved: true,
+        officialFlowEnabled: true,
       ),
       throwsA(isA<PlanUsageFailure>()),
     );
@@ -226,7 +222,7 @@ void main() {
           ],
           grantedScopes: permissions.$1,
           consent: permissions.$2,
-          selectedPrivateClientApproved: true,
+          officialFlowEnabled: true,
         ),
         throwsA(isA<PlanUsageFailure>()),
       );
