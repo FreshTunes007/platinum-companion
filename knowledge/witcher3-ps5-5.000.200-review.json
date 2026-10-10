@@ -1,0 +1,1024 @@
+{
+  "schemaVersion": 1,
+  "targetVersion": "5.000.200",
+  "resultPackVersion": "0.0.2",
+  "checkedAt": "2026-10-02",
+  "status": "REVIEW_COMPLETE_WITH_PARTIAL_EVIDENCE",
+  "scope": {
+    "game": "The Witcher 3",
+    "platform": "PS5",
+    "goal": "base_platinum",
+    "regions": [
+      "White Orchard",
+      "early Velen"
+    ],
+    "fullGame": false
+  },
+  "versionIdentity": {
+    "reported": "5.000.200",
+    "source": "user_confirmation",
+    "patchFamily": "5.00b",
+    "mappingStatus": "SUPPORTED_BY_CDPR_FAMILY_AND_MP1ST_PACKAGE_REPORT",
+    "independentInstalledBuildInspection": false,
+    "trophyCatalogVersionIsGamePatch": false
+  },
+  "policy": {
+    "VERIFIED_FOR_CURRENT_VERSION": "Explicit current-version proof or practical test covering the whole claim. Critical rules require independent corroboration and all missable/difficulty/one-run clauses.",
+    "SUPPORTED_FOR_CURRENT_VERSION": "Positive objective/source convergence or a version-neutral precaution; no unlock guarantee. Historical compatibility alone is not VERIFIED.",
+    "VERSION_UNCERTAIN": "Whole claim lacks current-version proof, even if a component is observed or supported.",
+    "DISPUTED": "Unresolved contradictory claims; source quality differences recorded; no safe-deferral claim.",
+    "absenceOfChangeIsProof": false,
+    "guideIsTruth": false
+  },
+  "sources": [
+    {
+      "id": "version_cdpr_changes",
+      "publisher": "CD PROJEKT RED",
+      "url": "https://www.thewitcher.com/us/en/news/52041/see-whats-new-in-the-witcher-3-wild-hunt-remastered",
+      "publishedAt": "2026-09-28",
+      "versionScope": "5.00 Remastered / PS5; not exact runtime validation",
+      "access": "page_read",
+      "supports": "Skills, combat, tutorials, accessibility and loot UI changed.",
+      "checkedAt": "2026-10-02"
+    },
+    {
+      "id": "version_cdpr_hotfix",
+      "publisher": "CD PROJEKT RED",
+      "url": "https://www.thewitcher.com/us/en/news/52067/patch-5-00b-for-the-witcher-3-wild-hunt-remastered-is-now-live",
+      "publishedAt": "2026-10-01",
+      "versionScope": "5.00b PS5; exact package digits not given",
+      "access": "page_read",
+      "supports": "Hotfix lists lighting/parity changes; list is not exhaustive proof.",
+      "checkedAt": "2026-10-02"
+    },
+    {
+      "id": "version_cdpr_faq",
+      "publisher": "CD PROJEKT RED",
+      "url": "https://www.thewitcher.com/gr/en/witcher3",
+      "publishedAt": null,
+      "versionScope": "Remastered general FAQ",
+      "access": "page_read",
+      "supports": "Trophies and saves remain; specific trigger implementations not certified.",
+      "checkedAt": "2026-10-02"
+    },
+    {
+      "id": "version_build_report",
+      "publisher": "MP1st",
+      "url": "https://mp1st.com/title-updates-and-patches/the-witcher-3-remastered-update-5-000-200-released-october-1-version-5-00b",
+      "publishedAt": "2026-10-01",
+      "versionScope": "Reports PS5 5.000.200 as 5.00b",
+      "access": "search_index_only_open_failed",
+      "supports": "Package/patch correspondence; not a trophy test.",
+      "checkedAt": "2026-10-02"
+    },
+    {
+      "id": "version_psn_catalog",
+      "publisher": "Sony trophy service",
+      "url": "local-evidence:docs/live-psn-evidence.json",
+      "versionScope": "Actual PS5 NPWR24698_00 catalog; engine patch not supplied",
+      "access": "recorded_live_read_2026-10-02",
+      "supports": "Objective text, not engine conditions; trophy-set 01.00 is not game patch.",
+      "checkedAt": "2026-10-02"
+    },
+    {
+      "id": "version_user_confirmations",
+      "publisher": "User",
+      "url": "local-evidence:private/live-state.json",
+      "versionScope": "Reported 5.000.200; current save observations only",
+      "access": "existing_user_confirmation_no_new_interview",
+      "supports": "Early shop cards bought and Zoltan present; alternatives not tested.",
+      "checkedAt": "2026-10-02"
+    },
+    {
+      "id": "version_stratege_guide",
+      "publisher": "Stratege",
+      "url": "https://stratege.ru/ps4/games/the_witcher_3_wild_hunt/article/58654",
+      "publishedAt": "2015-10-29",
+      "versionScope": "Original PS4 historical guide, not 5.000.200 PS5",
+      "access": "search_index_only",
+      "supports": "Historical difficulty route; does not validate current version.",
+      "checkedAt": "2026-10-02"
+    },
+    {
+      "id": "version_cdpr_oils",
+      "publisher": "CD PROJEKT RED",
+      "url": "https://www.thewitcher.com/de/en/news/48103/patch-4-03-list-of-changes",
+      "publishedAt": "2023-05-11",
+      "versionScope": "4.03 PS5 feature introduction only",
+      "access": "page_read",
+      "supports": "Auto-apply oils added; current setting/trigger behavior not tested.",
+      "checkedAt": "2026-10-02"
+    },
+    {
+      "id": "version_cdpr_mods",
+      "publisher": "CD PROJEKT RED",
+      "url": "https://support.cdprojektred.com/en/witcher-3/pc/gameplay/issue/3001/cross-platform-mod-support-how-to",
+      "publishedAt": null,
+      "versionScope": "Remastered mod support includes PS5",
+      "access": "page_read",
+      "supports": "Custom mods possible; their presence/effect in this save is unknown.",
+      "checkedAt": "2026-10-02"
+    }
+  ],
+  "unavailableSources": [
+    {
+      "id": "psnp",
+      "url": "https://psnprofiles.com/guide/2842-the-witcher-3-wild-hunt-trophy-guide",
+      "access": "open_failed",
+      "countedAsEvidence": false
+    },
+    {
+      "id": "stratege_current",
+      "url": "https://stratege.ru/ps5/games/the_witcher_3_wild_hunt_-_game_of_the_year_edition/trophies/spisok",
+      "access": "open_failed",
+      "countedAsNewCurrentVersionEvidence": false
+    }
+  ],
+  "counts": {
+    "VERIFIED_FOR_CURRENT_VERSION": 0,
+    "SUPPORTED_FOR_CURRENT_VERSION": 4,
+    "VERSION_UNCERTAIN": 7,
+    "DISPUTED": 1
+  },
+  "rules": [
+    {
+      "ruleId": "w3.dm",
+      "originalClaim": "Для Walked the Path нужна базовая история на Death March с самого начала без снижения сложности.",
+      "originalClaimSha256": "d2bbfab615db04650abab48c753fee78a361b8228dd1775084c28b455eab1dc5",
+      "originalVerificationStatus": "CONFIRMED",
+      "checkedAt": "2026-10-02",
+      "targetVersion": "5.000.200",
+      "status": "VERSION_UNCERTAIN",
+      "threshold": "critical",
+      "scope": [
+        "White Orchard",
+        "early Velen"
+      ],
+      "originalEvidence": [
+        {
+          "sourceId": "dayngls",
+          "url": "https://daynglsgameguides.com/2026/05/27/the-witcher-3-wild-hunt-trophy-guide-roadmap-ps5/",
+          "locator": "Walked the Path / One Playthrough",
+          "access": "page_read",
+          "versionScope": "PS5 May 2026 guide; before Remastered",
+          "currentVersionValidation": false
+        },
+        {
+          "sourceId": "stratege",
+          "url": "https://stratege.ru/ps5/games/the_witcher_3_wild_hunt_-_game_of_the_year_edition/trophies/spisok",
+          "locator": "Walked the Path; extraReBORN 2015",
+          "access": "historical_capture_current_direct_open_failed",
+          "versionScope": "PS5 catalog; inherited comments not exact engine version",
+          "currentVersionValidation": false
+        }
+      ],
+      "evidenceIds": [
+        "dayngls",
+        "stratege",
+        "version_cdpr_changes",
+        "version_cdpr_hotfix",
+        "version_cdpr_faq",
+        "version_psn_catalog",
+        "version_stratege_guide"
+      ],
+      "patchChangesReviewed": [
+        "accessibility",
+        "skills",
+        "mods"
+      ],
+      "absenceOfListedChangeUsedAsProof": false,
+      "practicalCurrentVersionTest": false,
+      "applicability": {
+        "wholeClaimStatus": "VERSION_UNCERTAIN",
+        "components": [
+          {
+            "claim": "difficulty_objective",
+            "status": "SUPPORTED_FOR_CURRENT_VERSION"
+          },
+          {
+            "claim": "start_and_never_lower_trigger",
+            "status": "VERSION_UNCERTAIN"
+          }
+        ],
+        "scope": "existing_early_game_rule_only"
+      },
+      "gap": "Непрерывность Death March и влияние новых accessibility settings не подтверждены тестом или явным документом для 5.000.200.",
+      "contradictions": [],
+      "conflictAppliesWhen": null,
+      "recommendation": {
+        "level": "MUST",
+        "purpose": "trophy_requirement",
+        "trophyCondition": true,
+        "objectiveRequirementLevel": "MUST",
+        "rationale": "Условие цели; точный runtime имеет отдельный статус evidence."
+      },
+      "userObservationBoundary": null
+    },
+    {
+      "ruleId": "w3.ng.cards",
+      "originalClaim": "Сведения о переносе карт в NG+ конфликтуют. Проверить коллекцию текущего сохранения; старую коллекцию не считать доказательством.",
+      "originalClaimSha256": "20c3cea3f852a01a51810bdec6ec436246052559ca3025b4cc875c18286c760d",
+      "originalVerificationStatus": "DISPUTED",
+      "checkedAt": "2026-10-02",
+      "targetVersion": "5.000.200",
+      "status": "DISPUTED",
+      "threshold": "critical",
+      "scope": [
+        "White Orchard",
+        "early Velen"
+      ],
+      "originalEvidence": [
+        {
+          "sourceId": "ngOld",
+          "url": "https://www.gamesradar.com/witcher-3s-gwent-cards-wont-carry-over-new-game-plus/",
+          "locator": "Developer report",
+          "access": "title_visible_body_not_extracted_current_pass",
+          "versionScope": "Historical developer report, 2015",
+          "currentVersionValidation": false
+        },
+        {
+          "sourceId": "ngConflict",
+          "url": "https://www.witcher.co/blog/witcher-3-new-game-plus-the-complete-guide",
+          "locator": "What carries over",
+          "access": "page_read",
+          "versionScope": "2026 guide; exact platform/build unproved and lower confidence",
+          "currentVersionValidation": false
+        }
+      ],
+      "evidenceIds": [
+        "ngOld",
+        "ngConflict",
+        "version_cdpr_changes",
+        "version_cdpr_hotfix",
+        "version_cdpr_faq",
+        "version_psn_catalog"
+      ],
+      "patchChangesReviewed": [
+        "mods"
+      ],
+      "absenceOfListedChangeUsedAsProof": false,
+      "practicalCurrentVersionTest": false,
+      "applicability": {
+        "wholeClaimStatus": "DISPUTED",
+        "components": [
+          {
+            "claim": "current_save_collection_check",
+            "status": "SUPPORTED_FOR_CURRENT_VERSION"
+          },
+          {
+            "claim": "ngplus_transfer",
+            "status": "DISPUTED"
+          }
+        ],
+        "scope": "existing_early_game_rule_only"
+      },
+      "gap": "Старый developer report описывает сброс карт; менее надёжный witcher.co утверждает перенос без patch-specific доказательства.",
+      "contradictions": [
+        {
+          "sourceIds": [
+            "ngOld",
+            "ngConflict"
+          ],
+          "claim": "Reset versus carry-over; platform/patch differences not established.",
+          "resolution": "needs_patch_specific_check"
+        }
+      ],
+      "conflictAppliesWhen": {
+        "fact": "mode",
+        "value": "NG+"
+      },
+      "recommendation": {
+        "level": "RECOMMENDED",
+        "purpose": "safety_precaution",
+        "trophyCondition": false,
+        "objectiveRequirementLevel": "MUST",
+        "rationale": "Мера подстраховки; не самостоятельное обязательное условие платины."
+      },
+      "userObservationBoundary": null
+    },
+    {
+      "ruleId": "w3.cards.shop",
+      "originalClaim": "Купить ранние карты у Эльзы; после её ухода eGuide указывает Брама как запасного продавца.",
+      "originalClaimSha256": "fb4ac0a22da60e1b1653610e0ee51060d4ae43b5dc29f93a9a05a16fe602539c",
+      "originalVerificationStatus": "CONFIRMED",
+      "checkedAt": "2026-10-02",
+      "targetVersion": "5.000.200",
+      "status": "VERSION_UNCERTAIN",
+      "threshold": "critical",
+      "scope": [
+        "White Orchard",
+        "early Velen"
+      ],
+      "originalEvidence": [
+        {
+          "sourceId": "prima",
+          "url": "https://primagames.com/eguides/the-witcher-3-wild-hunt-the-complete-edition-eguide/gwent/the-gwentlefolk-of-the-northern-realms/the-gwentlefolk-of-white-orchard",
+          "locator": "Elsa / Bram",
+          "access": "page_read",
+          "versionScope": "Complete Edition eGuide; patch unspecified",
+          "currentVersionValidation": false
+        },
+        {
+          "sourceId": "stratege",
+          "url": "https://stratege.ru/ps5/games/the_witcher_3_wild_hunt_-_game_of_the_year_edition/trophies/spisok",
+          "locator": "Card Collector; Lemars",
+          "access": "historical_capture_current_direct_open_failed",
+          "versionScope": "PS5 catalog; inherited comments not exact engine version",
+          "currentVersionValidation": false
+        }
+      ],
+      "evidenceIds": [
+        "prima",
+        "stratege",
+        "version_cdpr_changes",
+        "version_cdpr_hotfix",
+        "version_cdpr_faq",
+        "version_psn_catalog",
+        "version_user_confirmations"
+      ],
+      "patchChangesReviewed": [
+        "loot_ui",
+        "mods"
+      ],
+      "absenceOfListedChangeUsedAsProof": false,
+      "practicalCurrentVersionTest": false,
+      "applicability": {
+        "wholeClaimStatus": "VERSION_UNCERTAIN",
+        "components": [
+          {
+            "claim": "current_user_purchase",
+            "status": "VERIFIED_FOR_CURRENT_VERSION"
+          },
+          {
+            "claim": "bram_recovery_and_deadline",
+            "status": "VERSION_UNCERTAIN"
+          }
+        ],
+        "scope": "existing_early_game_rule_only"
+      },
+      "gap": "Покупка в текущем save подтверждена; Брам, inventory и момент смены продавца на 5.000.200 не проверены.",
+      "contradictions": [],
+      "conflictAppliesWhen": null,
+      "recommendation": {
+        "level": "RECOMMENDED",
+        "purpose": "safety_precaution",
+        "trophyCondition": false,
+        "objectiveRequirementLevel": "MUST",
+        "rationale": "Мера подстраховки; не самостоятельное обязательное условие платины."
+      },
+      "userObservationBoundary": "Подтверждение текущего inventory не верифицирует fallback и другие прохождения."
+    },
+    {
+      "ruleId": "w3.cards.scholar",
+      "originalClaim": "Выиграть карту Золтана у учёного; при пропуске руководства указывают запасной предмет у Дерева висельников.",
+      "originalClaimSha256": "b72b6ed40147318683442b020dc97ffbcd008c88a0b844d34d6eb146e5459475",
+      "originalVerificationStatus": "CONFIRMED",
+      "checkedAt": "2026-10-02",
+      "targetVersion": "5.000.200",
+      "status": "VERSION_UNCERTAIN",
+      "threshold": "critical",
+      "scope": [
+        "White Orchard",
+        "early Velen"
+      ],
+      "originalEvidence": [
+        {
+          "sourceId": "prima",
+          "url": "https://primagames.com/eguides/the-witcher-3-wild-hunt-the-complete-edition-eguide/gwent/the-gwentlefolk-of-the-northern-realms/the-gwentlefolk-of-white-orchard",
+          "locator": "Aldert Geert",
+          "access": "page_read",
+          "versionScope": "Complete Edition eGuide; patch unspecified",
+          "currentVersionValidation": false
+        },
+        {
+          "sourceId": "gamerguides",
+          "url": "https://www.gamerguides.com/the-witcher-3-wild-hunt/database/gwent/unit-cards-2/zoltan-chivay",
+          "locator": "Overview",
+          "access": "page_read",
+          "versionScope": "Card database; patch unspecified",
+          "currentVersionValidation": false
+        }
+      ],
+      "evidenceIds": [
+        "prima",
+        "gamerguides",
+        "version_cdpr_changes",
+        "version_cdpr_hotfix",
+        "version_cdpr_faq",
+        "version_psn_catalog",
+        "version_user_confirmations"
+      ],
+      "patchChangesReviewed": [
+        "tutorials",
+        "mods"
+      ],
+      "absenceOfListedChangeUsedAsProof": false,
+      "practicalCurrentVersionTest": false,
+      "applicability": {
+        "wholeClaimStatus": "VERSION_UNCERTAIN",
+        "components": [
+          {
+            "claim": "current_user_zoltan_possession",
+            "status": "VERIFIED_FOR_CURRENT_VERSION"
+          },
+          {
+            "claim": "tree_recovery_and_npc_deadline",
+            "status": "VERSION_UNCERTAIN"
+          }
+        ],
+        "scope": "existing_early_game_rule_only"
+      },
+      "gap": "Золтан в текущем save подтверждён; fallback у дерева и исчезновение NPC не проверены на 5.000.200.",
+      "contradictions": [],
+      "conflictAppliesWhen": null,
+      "recommendation": {
+        "level": "RECOMMENDED",
+        "purpose": "safety_precaution",
+        "trophyCondition": false,
+        "objectiveRequirementLevel": "MUST",
+        "rationale": "Мера подстраховки; не самостоятельное обязательное условие платины."
+      },
+      "userObservationBoundary": "Подтверждение текущего inventory не верифицирует fallback и другие прохождения."
+    },
+    {
+      "ruleId": "w3.contracts.reserve",
+      "originalClaim": "Для Even Odds нужны два заказных чудовища без Знаков, зелий, мутагенов, масел и бомб; все заказы нельзя исчерпать заранее.",
+      "originalClaimSha256": "1175ebee030d4a9a09bac668137edbe71b3fc338250b51347327f53503af39d1",
+      "originalVerificationStatus": "CONFIRMED",
+      "checkedAt": "2026-10-02",
+      "targetVersion": "5.000.200",
+      "status": "VERSION_UNCERTAIN",
+      "threshold": "critical",
+      "scope": [
+        "White Orchard",
+        "early Velen"
+      ],
+      "originalEvidence": [
+        {
+          "sourceId": "dayngls",
+          "url": "https://daynglsgameguides.com/2026/05/27/the-witcher-3-wild-hunt-trophy-guide-roadmap-ps5/",
+          "locator": "Even Odds",
+          "access": "page_read",
+          "versionScope": "PS5 May 2026 guide; before Remastered",
+          "currentVersionValidation": false
+        },
+        {
+          "sourceId": "stratege",
+          "url": "https://stratege.ru/ps5/games/the_witcher_3_wild_hunt_-_game_of_the_year_edition/trophies/spisok",
+          "locator": "Even Odds trophy description",
+          "access": "historical_capture_current_direct_open_failed",
+          "versionScope": "PS5 catalog; inherited comments not exact engine version",
+          "currentVersionValidation": false
+        }
+      ],
+      "evidenceIds": [
+        "dayngls",
+        "stratege",
+        "version_cdpr_changes",
+        "version_cdpr_hotfix",
+        "version_cdpr_faq",
+        "version_psn_catalog"
+      ],
+      "patchChangesReviewed": [
+        "combat",
+        "skills",
+        "mods"
+      ],
+      "absenceOfListedChangeUsedAsProof": false,
+      "practicalCurrentVersionTest": false,
+      "applicability": {
+        "wholeClaimStatus": "VERSION_UNCERTAIN",
+        "components": [
+          {
+            "claim": "published_objective",
+            "status": "SUPPORTED_FOR_CURRENT_VERSION"
+          },
+          {
+            "claim": "one_run_counter_and_opportunities",
+            "status": "VERSION_UNCERTAIN"
+          }
+        ],
+        "scope": "existing_early_game_rule_only"
+      },
+      "gap": "Objective PSN подтверждает два убийства и запреты; one-run counter, eligible contracts и finite-opportunity behavior новой версии не проверены.",
+      "contradictions": [],
+      "conflictAppliesWhen": null,
+      "recommendation": {
+        "level": "MUST",
+        "purpose": "trophy_requirement",
+        "trophyCondition": true,
+        "objectiveRequirementLevel": "MUST",
+        "rationale": "Условие цели; точный runtime имеет отдельный статус evidence."
+      },
+      "userObservationBoundary": null
+    },
+    {
+      "ruleId": "w3.contracts.oils",
+      "originalClaim": "Патч 4.03 добавил авто-масла. Перед попыткой Even Odds отключить эту опцию: требование трофея запрещает масла.",
+      "originalClaimSha256": "9f88c57bfbb29dc38d33ec25e6e0a0e26cc23bd44d83b9b8838519694d27d659",
+      "originalVerificationStatus": "SUPPORTED",
+      "checkedAt": "2026-10-02",
+      "targetVersion": "5.000.200",
+      "status": "VERSION_UNCERTAIN",
+      "threshold": "critical",
+      "scope": [
+        "White Orchard",
+        "early Velen"
+      ],
+      "originalEvidence": [
+        {
+          "sourceId": "cdpr403",
+          "url": "https://www.thewitcher.com/us/en/news/48103/patch-4-03-list-of-changes",
+          "locator": "QUESTS & GAMEPLAY",
+          "access": "alternative_official_locale_read",
+          "versionScope": "Feature introduction 4.03, not current validation",
+          "currentVersionValidation": false
+        },
+        {
+          "sourceId": "stratege",
+          "url": "https://stratege.ru/ps5/games/the_witcher_3_wild_hunt_-_game_of_the_year_edition/trophies/spisok",
+          "locator": "Even Odds trophy description",
+          "access": "historical_capture_current_direct_open_failed",
+          "versionScope": "PS5 catalog; inherited comments not exact engine version",
+          "currentVersionValidation": false
+        }
+      ],
+      "evidenceIds": [
+        "cdpr403",
+        "stratege",
+        "version_cdpr_changes",
+        "version_cdpr_hotfix",
+        "version_cdpr_faq",
+        "version_psn_catalog",
+        "version_cdpr_oils"
+      ],
+      "patchChangesReviewed": [
+        "combat",
+        "skills",
+        "mods"
+      ],
+      "absenceOfListedChangeUsedAsProof": false,
+      "practicalCurrentVersionTest": false,
+      "applicability": {
+        "wholeClaimStatus": "VERSION_UNCERTAIN",
+        "components": [
+          {
+            "claim": "published_no_oils_objective",
+            "status": "SUPPORTED_FOR_CURRENT_VERSION"
+          },
+          {
+            "claim": "auto_oils_current_behavior",
+            "status": "VERSION_UNCERTAIN"
+          }
+        ],
+        "scope": "existing_early_game_rule_only"
+      },
+      "gap": "Запрет использования масла следует из objective; наличие/отключение auto-oils и его учёт новым триггером не проверены.",
+      "contradictions": [],
+      "conflictAppliesWhen": null,
+      "recommendation": {
+        "level": "RECOMMENDED",
+        "purpose": "safety_precaution",
+        "trophyCondition": false,
+        "objectiveRequirementLevel": "MUST",
+        "rationale": "Мера подстраховки; не самостоятельное обязательное условие платины."
+      },
+      "userObservationBoundary": null
+    },
+    {
+      "ruleId": "w3.keira.chain",
+      "originalClaim": "После ранних заданий с Кейрой продолжить её отдельную цепочку до завершения для Friends With Benefits.",
+      "originalClaimSha256": "967e2f6c2609da26190094fa0f61e5d65a1cc44d675c4ae67fb0139fc6fa0fe2",
+      "originalVerificationStatus": "CONFIRMED",
+      "checkedAt": "2026-10-02",
+      "targetVersion": "5.000.200",
+      "status": "VERSION_UNCERTAIN",
+      "threshold": "critical",
+      "scope": [
+        "White Orchard",
+        "early Velen"
+      ],
+      "originalEvidence": [
+        {
+          "sourceId": "powerpyx",
+          "url": "https://www.powerpyx.com/guides/the-witcher-3-wild-hunt-trophy-guide.html/",
+          "locator": "Friends With Benefits",
+          "access": "page_read",
+          "versionScope": "Original 2015 guide; old PS4-era methods",
+          "currentVersionValidation": false
+        },
+        {
+          "sourceId": "dayngls",
+          "url": "https://daynglsgameguides.com/2026/05/27/the-witcher-3-wild-hunt-trophy-guide-roadmap-ps5/",
+          "locator": "Friends With Benefits",
+          "access": "page_read",
+          "versionScope": "PS5 May 2026 guide; before Remastered",
+          "currentVersionValidation": false
+        }
+      ],
+      "evidenceIds": [
+        "powerpyx",
+        "dayngls",
+        "version_cdpr_changes",
+        "version_cdpr_hotfix",
+        "version_cdpr_faq",
+        "version_psn_catalog"
+      ],
+      "patchChangesReviewed": [
+        "quest_ui",
+        "mods"
+      ],
+      "absenceOfListedChangeUsedAsProof": false,
+      "practicalCurrentVersionTest": false,
+      "applicability": {
+        "wholeClaimStatus": "VERSION_UNCERTAIN",
+        "components": [
+          {
+            "claim": "published_subplot_objective",
+            "status": "SUPPORTED_FOR_CURRENT_VERSION"
+          },
+          {
+            "claim": "chain_and_cutoff_runtime",
+            "status": "VERSION_UNCERTAIN"
+          }
+        ],
+        "scope": "existing_early_game_rule_only"
+      },
+      "gap": "Два независимых исторических guides согласуют цепочку, но точные prerequisites, cutoff и unlock на 5.000.200 не проверены.",
+      "contradictions": [],
+      "conflictAppliesWhen": null,
+      "recommendation": {
+        "level": "MUST",
+        "purpose": "trophy_requirement",
+        "trophyCondition": true,
+        "objectiveRequirementLevel": "MUST",
+        "rationale": "Условие цели; точный runtime имеет отдельный статус evidence."
+      },
+      "userObservationBoundary": null
+    },
+    {
+      "ruleId": "w3.keira.ally",
+      "originalClaim": "В финале цепочки Кейры выбор отправить её в Каэр Морхен нужен для будущего Full Crew.",
+      "originalClaimSha256": "9572829441d7d2e3c048e8122d16a94c64b399c52d4af059a38a958f72193825",
+      "originalVerificationStatus": "CONFIRMED",
+      "checkedAt": "2026-10-02",
+      "targetVersion": "5.000.200",
+      "status": "VERSION_UNCERTAIN",
+      "threshold": "critical",
+      "scope": [
+        "White Orchard",
+        "early Velen"
+      ],
+      "originalEvidence": [
+        {
+          "sourceId": "powerpyx",
+          "url": "https://www.powerpyx.com/guides/the-witcher-3-wild-hunt-trophy-guide.html/",
+          "locator": "Friends With Benefits / Full Crew",
+          "access": "page_read",
+          "versionScope": "Original 2015 guide; old PS4-era methods",
+          "currentVersionValidation": false
+        },
+        {
+          "sourceId": "dayngls",
+          "url": "https://daynglsgameguides.com/2026/05/27/the-witcher-3-wild-hunt-trophy-guide-roadmap-ps5/",
+          "locator": "Full Crew: Keira",
+          "access": "page_read",
+          "versionScope": "PS5 May 2026 guide; before Remastered",
+          "currentVersionValidation": false
+        }
+      ],
+      "evidenceIds": [
+        "powerpyx",
+        "dayngls",
+        "version_cdpr_changes",
+        "version_cdpr_hotfix",
+        "version_cdpr_faq",
+        "version_psn_catalog"
+      ],
+      "patchChangesReviewed": [
+        "quest_ui",
+        "mods"
+      ],
+      "absenceOfListedChangeUsedAsProof": false,
+      "practicalCurrentVersionTest": false,
+      "applicability": {
+        "wholeClaimStatus": "VERSION_UNCERTAIN",
+        "components": [
+          {
+            "claim": "historical_keira_requirement",
+            "status": "SUPPORTED_FOR_CURRENT_VERSION"
+          },
+          {
+            "claim": "current_choice_recruitment_flag",
+            "status": "VERSION_UNCERTAIN"
+          }
+        ],
+        "scope": "existing_early_game_rule_only"
+      },
+      "gap": "Keira dependency согласована старыми guides; выбор и same-branch recruitment flag на 5.000.200 не проверены.",
+      "contradictions": [],
+      "conflictAppliesWhen": null,
+      "recommendation": {
+        "level": "MUST",
+        "purpose": "trophy_requirement",
+        "trophyCondition": true,
+        "objectiveRequirementLevel": "MUST",
+        "rationale": "Условие цели; точный runtime имеет отдельный статус evidence."
+      },
+      "userObservationBoundary": null
+    },
+    {
+      "ruleId": "w3.keira.save",
+      "originalClaim": "Перед финальным решением Кейры сохранить отдельный слот, чтобы иметь возможность исправить закрывающий выбор.",
+      "originalClaimSha256": "b820bad6f4a4c75c38dd182c2f142c9d48931ed05146c7718b220d900ced76f6",
+      "originalVerificationStatus": "SUPPORTED",
+      "checkedAt": "2026-10-02",
+      "targetVersion": "5.000.200",
+      "status": "SUPPORTED_FOR_CURRENT_VERSION",
+      "threshold": "precaution",
+      "scope": [
+        "White Orchard",
+        "early Velen"
+      ],
+      "originalEvidence": [
+        {
+          "sourceId": "powerpyx",
+          "url": "https://www.powerpyx.com/guides/the-witcher-3-wild-hunt-trophy-guide.html/",
+          "locator": "Full Crew",
+          "access": "page_read",
+          "versionScope": "Original 2015 guide; old PS4-era methods",
+          "currentVersionValidation": false
+        }
+      ],
+      "evidenceIds": [
+        "powerpyx",
+        "version_cdpr_changes",
+        "version_cdpr_hotfix",
+        "version_cdpr_faq",
+        "version_psn_catalog"
+      ],
+      "patchChangesReviewed": [
+        "save_compatibility"
+      ],
+      "absenceOfListedChangeUsedAsProof": false,
+      "practicalCurrentVersionTest": false,
+      "applicability": {
+        "wholeClaimStatus": "SUPPORTED_FOR_CURRENT_VERSION",
+        "components": [
+          {
+            "claim": "backup_precaution",
+            "status": "SUPPORTED_FOR_CURRENT_VERSION"
+          },
+          {
+            "claim": "specific_recovery_guarantee",
+            "status": "VERSION_UNCERTAIN"
+          }
+        ],
+        "scope": "existing_early_game_rule_only"
+      },
+      "gap": "Рекомендация сделать backup не является условием трофея; успешное исправление конкретного исхода не гарантируется.",
+      "contradictions": [],
+      "conflictAppliesWhen": null,
+      "recommendation": {
+        "level": "RECOMMENDED",
+        "purpose": "safety_precaution",
+        "trophyCondition": false,
+        "objectiveRequirementLevel": "MUST",
+        "rationale": "Мера подстраховки; не самостоятельное обязательное условие платины."
+      },
+      "userObservationBoundary": null
+    },
+    {
+      "ruleId": "w3.power",
+      "originalClaim": "Для Power Overwhelming нужны одновременно бонусы всех пяти Знаков; это можно выполнить в Белом Саду.",
+      "originalClaimSha256": "6cd4b9ff9208d6aa6d630c1d4162fa0f372b88bcebdef729ee2f7c76eaa11613",
+      "originalVerificationStatus": "CONFIRMED",
+      "checkedAt": "2026-10-02",
+      "targetVersion": "5.000.200",
+      "status": "SUPPORTED_FOR_CURRENT_VERSION",
+      "threshold": "standard",
+      "scope": [
+        "White Orchard",
+        "early Velen"
+      ],
+      "originalEvidence": [
+        {
+          "sourceId": "powerpyx",
+          "url": "https://www.powerpyx.com/guides/the-witcher-3-wild-hunt-trophy-guide.html/",
+          "locator": "Power Overwhelming",
+          "access": "page_read",
+          "versionScope": "Original 2015 guide; old PS4-era methods",
+          "currentVersionValidation": false
+        },
+        {
+          "sourceId": "dayngls",
+          "url": "https://daynglsgameguides.com/2026/05/27/the-witcher-3-wild-hunt-trophy-guide-roadmap-ps5/",
+          "locator": "Power Overwhelming",
+          "access": "page_read",
+          "versionScope": "PS5 May 2026 guide; before Remastered",
+          "currentVersionValidation": false
+        }
+      ],
+      "evidenceIds": [
+        "powerpyx",
+        "dayngls",
+        "version_cdpr_changes",
+        "version_cdpr_hotfix",
+        "version_cdpr_faq",
+        "version_psn_catalog"
+      ],
+      "patchChangesReviewed": [
+        "skills",
+        "mods"
+      ],
+      "absenceOfListedChangeUsedAsProof": false,
+      "practicalCurrentVersionTest": false,
+      "applicability": {
+        "wholeClaimStatus": "SUPPORTED_FOR_CURRENT_VERSION",
+        "components": [
+          {
+            "claim": "objective_and_white_orchard_method",
+            "status": "SUPPORTED_FOR_CURRENT_VERSION"
+          },
+          {
+            "claim": "exact_hotfix_unlock",
+            "status": "VERSION_UNCERTAIN"
+          }
+        ],
+        "scope": "existing_early_game_rule_only"
+      },
+      "gap": "EarnedAt 2026-09-30 предшествует hotfix 5.000.200; он не доказывает новый unlock на точной версии.",
+      "contradictions": [],
+      "conflictAppliesWhen": null,
+      "recommendation": {
+        "level": "OPTIONAL",
+        "purpose": "convenience",
+        "trophyCondition": false,
+        "objectiveRequirementLevel": "MUST",
+        "rationale": "Время/способ сбора удобны, но не обязательны именно сейчас; сам связанный трофей обязателен для платины."
+      },
+      "userObservationBoundary": null
+    },
+    {
+      "ruleId": "w3.bombs",
+      "originalClaim": "Bombardier требует рецепты шести разных типов бомб. Ранние рецепты дают начало; завершать сбор в Белом Саду не требуется.",
+      "originalClaimSha256": "da08f30539d7253ed9077790913b23ed8f3c015e280aa6559f6bae68a2bd261f",
+      "originalVerificationStatus": "CONFIRMED",
+      "checkedAt": "2026-10-02",
+      "targetVersion": "5.000.200",
+      "status": "SUPPORTED_FOR_CURRENT_VERSION",
+      "threshold": "standard",
+      "scope": [
+        "White Orchard",
+        "early Velen"
+      ],
+      "originalEvidence": [
+        {
+          "sourceId": "powerpyx",
+          "url": "https://www.powerpyx.com/guides/the-witcher-3-wild-hunt-trophy-guide.html/",
+          "locator": "Bombardier",
+          "access": "page_read",
+          "versionScope": "Original 2015 guide; old PS4-era methods",
+          "currentVersionValidation": false
+        },
+        {
+          "sourceId": "dayngls",
+          "url": "https://daynglsgameguides.com/2026/05/27/the-witcher-3-wild-hunt-trophy-guide-roadmap-ps5/",
+          "locator": "Bombardier",
+          "access": "page_read",
+          "versionScope": "PS5 May 2026 guide; before Remastered",
+          "currentVersionValidation": false
+        }
+      ],
+      "evidenceIds": [
+        "powerpyx",
+        "dayngls",
+        "version_cdpr_changes",
+        "version_cdpr_hotfix",
+        "version_cdpr_faq",
+        "version_psn_catalog"
+      ],
+      "patchChangesReviewed": [
+        "loot_ui",
+        "mods"
+      ],
+      "absenceOfListedChangeUsedAsProof": false,
+      "practicalCurrentVersionTest": false,
+      "applicability": {
+        "wholeClaimStatus": "SUPPORTED_FOR_CURRENT_VERSION",
+        "components": [
+          {
+            "claim": "six_distinct_types_objective",
+            "status": "SUPPORTED_FOR_CURRENT_VERSION"
+          },
+          {
+            "claim": "specific_later_vendor_safe_deferral",
+            "status": "VERSION_UNCERTAIN"
+          }
+        ],
+        "scope": "existing_early_game_rule_only"
+      },
+      "gap": "Шесть разных типов поддержаны objective и guides; новые inventory counters и поздний vendor не проверены.",
+      "contradictions": [],
+      "conflictAppliesWhen": null,
+      "recommendation": {
+        "level": "OPTIONAL",
+        "purpose": "convenience",
+        "trophyCondition": false,
+        "objectiveRequirementLevel": "MUST",
+        "rationale": "Время/способ сбора удобны, но не обязательны именно сейчас; сам связанный трофей обязателен для платины."
+      },
+      "userObservationBoundary": null
+    },
+    {
+      "ruleId": "w3.books",
+      "originalClaim": "Для Bookworm нужно открыть 30 книг, журналов или документов; начни читать добычу по пути.",
+      "originalClaimSha256": "bbb724f440f6ac2b3dbf63315c2f92306e32c63d5f6bc7a28bb257bd68c87c26",
+      "originalVerificationStatus": "SUPPORTED",
+      "checkedAt": "2026-10-02",
+      "targetVersion": "5.000.200",
+      "status": "SUPPORTED_FOR_CURRENT_VERSION",
+      "threshold": "standard",
+      "scope": [
+        "White Orchard",
+        "early Velen"
+      ],
+      "originalEvidence": [
+        {
+          "sourceId": "dayngls",
+          "url": "https://daynglsgameguides.com/2026/05/27/the-witcher-3-wild-hunt-trophy-guide-roadmap-ps5/",
+          "locator": "Bookworm",
+          "access": "page_read",
+          "versionScope": "PS5 May 2026 guide; before Remastered",
+          "currentVersionValidation": false
+        }
+      ],
+      "evidenceIds": [
+        "dayngls",
+        "version_cdpr_changes",
+        "version_cdpr_hotfix",
+        "version_cdpr_faq",
+        "version_psn_catalog"
+      ],
+      "patchChangesReviewed": [
+        "loot_ui",
+        "mods"
+      ],
+      "absenceOfListedChangeUsedAsProof": false,
+      "practicalCurrentVersionTest": false,
+      "applicability": {
+        "wholeClaimStatus": "SUPPORTED_FOR_CURRENT_VERSION",
+        "components": [
+          {
+            "claim": "read_documents_opportunistically",
+            "status": "SUPPORTED_FOR_CURRENT_VERSION"
+          },
+          {
+            "claim": "cross_save_counter",
+            "status": "VERSION_UNCERTAIN"
+          }
+        ],
+        "scope": "existing_early_game_rule_only"
+      },
+      "gap": "Read 30 поддержан objective и PS5 guide; точные counter/save-branch и новые UI shortcuts не проверены.",
+      "contradictions": [],
+      "conflictAppliesWhen": null,
+      "recommendation": {
+        "level": "OPTIONAL",
+        "purpose": "convenience",
+        "trophyCondition": false,
+        "objectiveRequirementLevel": "MUST",
+        "rationale": "Время/способ сбора удобны, но не обязательны именно сейчас; сам связанный трофей обязателен для платины."
+      },
+      "userObservationBoundary": null
+    }
+  ],
+  "nearestGuidance": [
+    {
+      "id": "pre_griffin_manual_save",
+      "level": "RECOMMENDED",
+      "purpose": "safety_precaution",
+      "requiredForPlatinum": false,
+      "reason": "Checkpoint для возможности возврата; отдельного trophy condition нет."
+    },
+    {
+      "id": "preserve_death_march",
+      "ruleId": "w3.dm",
+      "level": "MUST",
+      "purpose": "trophy_requirement",
+      "requiredForPlatinum": true,
+      "versionStatus": "VERSION_UNCERTAIN",
+      "reason": "Опубликованная цель — Death March; непрерывность новой версии ещё не верифицирована."
+    },
+    {
+      "id": "report_post_griffin_milestone",
+      "level": "OPTIONAL",
+      "purpose": "convenience",
+      "requiredForPlatinum": false,
+      "reason": "Обновление маршрута ассистента после реального события, не условие игры."
+    }
+  ],
+  "playerStateWritten": false,
+  "newGameplayEvents": 0,
+  "newRules": 0
+}

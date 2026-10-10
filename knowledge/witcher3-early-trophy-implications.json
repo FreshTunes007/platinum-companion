@@ -1,0 +1,28 @@
+{
+  "packVersion": "0.0.3",
+  "checkedAt": "2026-10-03",
+  "scope": "White Orchard to Vizima audience; no later story inference",
+  "sources": [
+    {"id":"early_story_psn_objective","publisher":"Sony trophy service","url":"local-evidence:private/latest-psn.json","scope":"Previously read PS5 catalog objective; not a new live read"},
+    {"id":"early_story_guide","publisher":"Dayngls","url":"https://daynglsgameguides.com/2026/05/27/the-witcher-3-wild-hunt-trophy-guide-roadmap-ps5/","scope":"Original author PS5 guide: Lilac and Gooseberries is story-related; historical, not exact-build unlock proof"},
+    {"id":"early_story_user_requirement","publisher":"User","url":"local-evidence:docs/trophy-refresh-live-report.md","scope":"Explicit current-case progression dependency supplied by user; expected only until provider confirms"}
+  ],
+  "trophyDefinitions": {
+    "find_yennefer": {"catalogName":"Lilac and Gooseberries","displayName":"Сирень и крыжовник"},
+    "butcher_blaviken": {"catalogName":"Butcher of Blaviken","displayName":"Мясник из Блавикена"}
+  },
+  "trophyImplications": [
+    {
+      "implicationId":"w3.early.vizima_yennefer",
+      "trophyKey":"find_yennefer",
+      "claim":"Confirmed arrival at the Vizima audience necessarily follows finding Yennefer in the reported normal story progression.",
+      "condition":{"and":[{"fact":"currentRegion","eq":"Vizima"},{"fact":"currentMilestone","eq":"vizima_audience"}]},
+      "expectedStatus":"EXPECTED_FROM_GAME_STATE",
+      "verificationStatus":"SUPPORTED",
+      "runtimeUnlockGuarantee":false,
+      "checkedAt":"2026-10-03",
+      "evidence":[{"sourceId":"early_story_psn_objective","locator":"Lilac and Gooseberries objective"},{"sourceId":"early_story_guide","locator":"Lilac and Gooseberries / story related"},{"sourceId":"early_story_user_requirement","locator":"arrived_in_vizima → Yennefer expected"}],
+      "notes":["Do not infer from griffin death alone.","Do not set provider earned=true or an earnedAt from this condition.","Butcher of Blaviken has no story implication.","This is an expectation mapping, not a thirteenth platinum-critical rule or blanket version verification."]
+    }
+  ]
+}

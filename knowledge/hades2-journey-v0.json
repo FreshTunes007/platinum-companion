@@ -1,0 +1,363 @@
+{
+  "version": "0.1.0",
+  "setId": "NPWR59398_00",
+  "platform": "PS5",
+  "scope": "nonlinear systems: prophecies, arcana, familiars, relationships, keepsakes, trials",
+  "facts": {
+    "fatedList": {
+      "label": "В этом сохранении открыт список пророчеств?",
+      "values": [
+        "yes",
+        "no"
+      ],
+      "spoilerLevel": "none"
+    },
+    "arcanaUpgrades": {
+      "label": "В этом сохранении доступны улучшения аркан?",
+      "values": [
+        "yes",
+        "no"
+      ],
+      "spoilerLevel": "none"
+    },
+    "familiarUpgrades": {
+      "label": "В этом сохранении доступны улучшения фамильяров?",
+      "values": [
+        "yes",
+        "no"
+      ],
+      "spoilerLevel": "none"
+    },
+    "familiarForms": {
+      "label": "В этом сохранении доступна смена облика фамильяров?",
+      "values": [
+        "yes",
+        "no"
+      ],
+      "spoilerLevel": "none"
+    },
+    "bonds": {
+      "label": "В этом сохранении доступен просмотр отношений?",
+      "values": [
+        "yes",
+        "no"
+      ],
+      "spoilerLevel": "none"
+    },
+    "keepsakes": {
+      "label": "В этом сохранении доступна коллекция памятных подарков?",
+      "values": [
+        "yes",
+        "no"
+      ],
+      "spoilerLevel": "none"
+    },
+    "chaosTrials": {
+      "label": "В этом сохранении доступны испытания Хаоса?",
+      "values": [
+        "yes",
+        "no"
+      ],
+      "spoilerLevel": "none"
+    }
+  },
+  "rules": [
+    {
+      "ruleId": "h2.prophecies",
+      "trophyId": 14,
+      "expectedName": "Hand of the Fates",
+      "title": "Проверить пророчества",
+      "requires": [
+        "fatedList"
+      ],
+      "action": "Перед следующим забегом выберите незавершённое пророчество из доступного списка.",
+      "preview": "Уточните доступность нужной системы в текущем сохранении.",
+      "spoilerLevel": "none",
+      "oneRun": "not_asserted",
+      "verificationStatus": "SUPPORTED",
+      "versionStatus": "VERSION_UNCERTAIN",
+      "missable": "UNKNOWN",
+      "deadline": null,
+      "ngPlus": "UNKNOWN",
+      "difficulty": "UNKNOWN",
+      "evidence": [
+        {
+          "sourceId": "sony_catalog",
+          "kind": "PSN_VERIFIED",
+          "setId": "NPWR59398_00",
+          "trophyId": 14,
+          "checkedAt": "2026-10-09T19:52:04.850Z"
+        },
+        {
+          "sourceId": "dayngls_hades2",
+          "kind": "GUIDE_VERIFIED",
+          "url": "https://daynglsgameguides.com/2026/04/13/hades-ii-trophy-guide-and-roadmap/",
+          "status": "SUPPORTED",
+          "checkedAt": "2026-10-09T22:41:36.473Z"
+        }
+      ],
+      "contradictions": [],
+      "notes": "Exact trophy condition from Sony. Mechanic guide is supporting evidence, not a patch-specific guarantee."
+    },
+    {
+      "ruleId": "h2.arcana",
+      "trophyId": 17,
+      "expectedName": "Unassailable Insight",
+      "title": "Улучшать арканы",
+      "requires": [
+        "arcanaUpgrades"
+      ],
+      "action": "Проверьте недостающие улучшения аркан у алтаря и необходимые ресурсы.",
+      "preview": "Уточните доступность нужной системы в текущем сохранении.",
+      "spoilerLevel": "none",
+      "oneRun": "not_asserted",
+      "verificationStatus": "SUPPORTED",
+      "versionStatus": "VERSION_UNCERTAIN",
+      "missable": "UNKNOWN",
+      "deadline": null,
+      "ngPlus": "UNKNOWN",
+      "difficulty": "UNKNOWN",
+      "evidence": [
+        {
+          "sourceId": "sony_catalog",
+          "kind": "PSN_VERIFIED",
+          "setId": "NPWR59398_00",
+          "trophyId": 17,
+          "checkedAt": "2026-10-09T19:52:04.850Z"
+        },
+        {
+          "sourceId": "dayngls_hades2",
+          "kind": "GUIDE_VERIFIED",
+          "url": "https://daynglsgameguides.com/2026/04/13/hades-ii-trophy-guide-and-roadmap/",
+          "status": "SUPPORTED",
+          "checkedAt": "2026-10-09T22:41:36.473Z"
+        }
+      ],
+      "contradictions": [],
+      "notes": "Exact trophy condition from Sony. Mechanic guide is supporting evidence, not a patch-specific guarantee."
+    },
+    {
+      "ruleId": "h2.familiars",
+      "trophyId": 22,
+      "expectedName": "Beast Master",
+      "title": "Улучшать фамильяров",
+      "requires": [
+        "familiarUpgrades"
+      ],
+      "action": "Проверьте оставшиеся улучшения каждого фамильяра.",
+      "preview": "Уточните доступность нужной системы в текущем сохранении.",
+      "spoilerLevel": "none",
+      "oneRun": "not_asserted",
+      "verificationStatus": "SUPPORTED",
+      "versionStatus": "VERSION_UNCERTAIN",
+      "missable": "UNKNOWN",
+      "deadline": null,
+      "ngPlus": "UNKNOWN",
+      "difficulty": "UNKNOWN",
+      "evidence": [
+        {
+          "sourceId": "sony_catalog",
+          "kind": "PSN_VERIFIED",
+          "setId": "NPWR59398_00",
+          "trophyId": 22,
+          "checkedAt": "2026-10-09T19:52:04.850Z"
+        },
+        {
+          "sourceId": "dayngls_hades2",
+          "kind": "GUIDE_VERIFIED",
+          "url": "https://daynglsgameguides.com/2026/04/13/hades-ii-trophy-guide-and-roadmap/",
+          "status": "SUPPORTED",
+          "checkedAt": "2026-10-09T22:41:36.474Z"
+        }
+      ],
+      "contradictions": [],
+      "notes": "Exact trophy condition from Sony. Mechanic guide is supporting evidence, not a patch-specific guarantee."
+    },
+    {
+      "ruleId": "h2.forms",
+      "trophyId": 41,
+      "expectedName": "Unfamiliar Forms",
+      "title": "Облики фамильяров",
+      "requires": [
+        "familiarUpgrades",
+        "familiarForms"
+      ],
+      "action": "После улучшений измените облик каждого фамильяра.",
+      "preview": "Уточните доступность нужной системы в текущем сохранении.",
+      "spoilerLevel": "none",
+      "oneRun": "not_asserted",
+      "verificationStatus": "SUPPORTED",
+      "versionStatus": "VERSION_UNCERTAIN",
+      "missable": "UNKNOWN",
+      "deadline": null,
+      "ngPlus": "UNKNOWN",
+      "difficulty": "UNKNOWN",
+      "evidence": [
+        {
+          "sourceId": "sony_catalog",
+          "kind": "PSN_VERIFIED",
+          "setId": "NPWR59398_00",
+          "trophyId": 41,
+          "checkedAt": "2026-10-09T19:52:04.850Z"
+        },
+        {
+          "sourceId": "dayngls_hades2",
+          "kind": "GUIDE_VERIFIED",
+          "url": "https://daynglsgameguides.com/2026/04/13/hades-ii-trophy-guide-and-roadmap/",
+          "status": "SUPPORTED",
+          "checkedAt": "2026-10-09T22:41:36.474Z"
+        }
+      ],
+      "contradictions": [],
+      "notes": "Exact trophy condition from Sony. Mechanic guide is supporting evidence, not a patch-specific guarantee."
+    },
+    {
+      "ruleId": "h2.bonds",
+      "trophyId": 13,
+      "expectedName": "Close Comrades",
+      "title": "Развивать отношения",
+      "requires": [
+        "bonds"
+      ],
+      "action": "Проверьте шкалы отношений и подходящие подарки доступным персонажам.",
+      "preview": "Уточните доступность нужной системы в текущем сохранении.",
+      "spoilerLevel": "none",
+      "oneRun": "not_asserted",
+      "verificationStatus": "SUPPORTED",
+      "versionStatus": "VERSION_UNCERTAIN",
+      "missable": "UNKNOWN",
+      "deadline": null,
+      "ngPlus": "UNKNOWN",
+      "difficulty": "UNKNOWN",
+      "evidence": [
+        {
+          "sourceId": "sony_catalog",
+          "kind": "PSN_VERIFIED",
+          "setId": "NPWR59398_00",
+          "trophyId": 13,
+          "checkedAt": "2026-10-09T19:52:04.850Z"
+        },
+        {
+          "sourceId": "dayngls_hades2",
+          "kind": "GUIDE_VERIFIED",
+          "url": "https://daynglsgameguides.com/2026/04/13/hades-ii-trophy-guide-and-roadmap/",
+          "status": "SUPPORTED",
+          "checkedAt": "2026-10-09T22:41:36.474Z"
+        }
+      ],
+      "contradictions": [],
+      "notes": "Exact trophy condition from Sony. Mechanic guide is supporting evidence, not a patch-specific guarantee."
+    },
+    {
+      "ruleId": "h2.keepsakes",
+      "trophyId": 24,
+      "expectedName": "Sentimental Value",
+      "title": "Собирать памятные подарки",
+      "requires": [
+        "keepsakes"
+      ],
+      "action": "Сверьте незаполненные места в коллекции памятных подарков.",
+      "preview": "Уточните доступность нужной системы в текущем сохранении.",
+      "spoilerLevel": "none",
+      "oneRun": "not_asserted",
+      "verificationStatus": "SUPPORTED",
+      "versionStatus": "VERSION_UNCERTAIN",
+      "missable": "UNKNOWN",
+      "deadline": null,
+      "ngPlus": "UNKNOWN",
+      "difficulty": "UNKNOWN",
+      "evidence": [
+        {
+          "sourceId": "sony_catalog",
+          "kind": "PSN_VERIFIED",
+          "setId": "NPWR59398_00",
+          "trophyId": 24,
+          "checkedAt": "2026-10-09T19:52:04.850Z"
+        },
+        {
+          "sourceId": "dayngls_hades2",
+          "kind": "GUIDE_VERIFIED",
+          "url": "https://daynglsgameguides.com/2026/04/13/hades-ii-trophy-guide-and-roadmap/",
+          "status": "SUPPORTED",
+          "checkedAt": "2026-10-09T22:41:36.474Z"
+        }
+      ],
+      "contradictions": [],
+      "notes": "Exact trophy condition from Sony. Mechanic guide is supporting evidence, not a patch-specific guarantee."
+    },
+    {
+      "ruleId": "h2.trials",
+      "trophyId": 25,
+      "expectedName": "Infinite Possibility",
+      "title": "Испытания Хаоса",
+      "requires": [
+        "chaosTrials"
+      ],
+      "action": "Выберите доступное испытание Хаоса; счётчик цели берите из игры.",
+      "preview": "Уточните доступность нужной системы в текущем сохранении.",
+      "spoilerLevel": "none",
+      "oneRun": "not_asserted",
+      "verificationStatus": "SUPPORTED",
+      "versionStatus": "VERSION_UNCERTAIN",
+      "missable": "UNKNOWN",
+      "deadline": null,
+      "ngPlus": "UNKNOWN",
+      "difficulty": "UNKNOWN",
+      "evidence": [
+        {
+          "sourceId": "sony_catalog",
+          "kind": "PSN_VERIFIED",
+          "setId": "NPWR59398_00",
+          "trophyId": 25,
+          "checkedAt": "2026-10-09T19:52:04.850Z"
+        },
+        {
+          "sourceId": "dayngls_hades2",
+          "kind": "GUIDE_VERIFIED",
+          "url": "https://daynglsgameguides.com/2026/04/13/hades-ii-trophy-guide-and-roadmap/",
+          "status": "SUPPORTED",
+          "checkedAt": "2026-10-09T22:41:36.474Z"
+        }
+      ],
+      "contradictions": [],
+      "notes": "Exact trophy condition from Sony. Mechanic guide is supporting evidence, not a patch-specific guarantee."
+    },
+    {
+      "ruleId": "h2.arcana_prophecy",
+      "trophyId": 37,
+      "expectedName": "Arcana of the Ages",
+      "title": "Пророчество об арканах",
+      "requires": [
+        "fatedList"
+      ],
+      "action": "Сверьте арканы, оставшиеся в пророчестве; допускается несколько забегов.",
+      "preview": "Уточните доступность нужной системы в текущем сохранении.",
+      "spoilerLevel": "none",
+      "oneRun": "not_asserted",
+      "verificationStatus": "SUPPORTED",
+      "versionStatus": "VERSION_UNCERTAIN",
+      "missable": "UNKNOWN",
+      "deadline": null,
+      "ngPlus": "UNKNOWN",
+      "difficulty": "UNKNOWN",
+      "evidence": [
+        {
+          "sourceId": "sony_catalog",
+          "kind": "PSN_VERIFIED",
+          "setId": "NPWR59398_00",
+          "trophyId": 37,
+          "checkedAt": "2026-10-09T19:52:04.850Z"
+        },
+        {
+          "sourceId": "dayngls_hades2",
+          "kind": "GUIDE_VERIFIED",
+          "url": "https://daynglsgameguides.com/2026/04/13/hades-ii-trophy-guide-and-roadmap/",
+          "status": "SUPPORTED",
+          "checkedAt": "2026-10-09T22:41:36.474Z"
+        }
+      ],
+      "contradictions": [],
+      "notes": "Exact trophy condition from Sony. Mechanic guide is supporting evidence, not a patch-specific guarantee."
+    }
+  ]
+}

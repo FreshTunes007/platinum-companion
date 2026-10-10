@@ -1,0 +1,51 @@
+{
+  "setId": "NPWR24698_00",
+  "platform": "PS5",
+  "bindingEvidence": "existing verified Sony NPWR/trophy ID binding; no account identifiers",
+  "trophies": {
+    "difficulty_completion": {
+      "id": 10,
+      "name": "Walked the Path"
+    },
+    "difficulty_hard": {
+      "id": 9,
+      "name": "Ran the Gauntlet"
+    },
+    "collect_cards": {
+      "id": 33,
+      "name": "Card Collector"
+    },
+    "complete_keira": {
+      "id": 14,
+      "name": "Friends With Benefits"
+    },
+    "recruit_allies": {
+      "id": 15,
+      "name": "Full Crew"
+    },
+    "two_unassisted_contracts": {
+      "id": 30,
+      "name": "Even Odds"
+    },
+    "five_sign_bonuses": {
+      "id": 39,
+      "name": "Power Overwhelming"
+    },
+    "learn_bomb_recipes": {
+      "id": 36,
+      "name": "Bombardier"
+    },
+    "read_books": {
+      "id": 37,
+      "name": "Bookworm"
+    },
+    "find_yennefer": {
+      "id": 1,
+      "name": "Lilac and Gooseberries"
+    },
+    "butcher_blaviken": {
+      "id": 24,
+      "name": "Butcher of Blaviken"
+    }
+  }
+}

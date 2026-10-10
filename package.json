@@ -1,0 +1,21 @@
+{
+  "name": "platinum-companion",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "mcp:remote": "node scripts/serve-remote.mjs",
+    "psn:auth": "node scripts/psn-auth.mjs",
+    "snapshot:android": "node scripts/export-android-snapshot.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.31.0",
+    "psn-api": "2.18.1",
+    "zod": "4.6.5"
+  },
+  "license": "MIT"
+}

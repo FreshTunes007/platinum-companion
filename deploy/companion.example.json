@@ -1,0 +1,63 @@
+{
+  "publicationApproved": false,
+  "bindHost": "127.0.0.1",
+  "port": 8787,
+  "allowedHosts": [
+    "companion.example.invalid",
+    "localhost",
+    "127.0.0.1"
+  ],
+  "allowedOrigins": [
+    "https://chatgpt.com"
+  ],
+  "databasePath": "/data/psn-library.sqlite",
+  "bindingPath": "/data/account-binding.json",
+  "credentialPath": "/data/credentials/psn-refresh.encrypted",
+  "vaultKeyPath": "/run/secrets/platinum_vault_key",
+  "ownerContext": "platinum-cloud-service",
+  "credentialInstallApproved": false,
+  "defaultContextTitle": "Hades II",
+  "oauth": {
+    "resource": "https://companion.example.invalid/mcp",
+    "audience": "platinum-api",
+    "issuer": "https://identity.example.invalid/realms/companion",
+    "jwksUri": "https://identity.example.invalid/realms/companion/protocol/openid-connect/certs",
+    "ownerSubject": "REQUIRED_OWNER_SUBJECT",
+    "allowedClientIds": [
+      "companion-android",
+      "companion-mcp"
+    ],
+    "maxTokenLifetimeSeconds": 900,
+    "requireSessionId": true
+  },
+  "selectedSets": [
+    {
+      "title": "Hades II",
+      "setId": "REPLACE_FROM_CONFIRMED_BINDING",
+      "platform": "PS5"
+    },
+    {
+      "title": "Mortal Shell II",
+      "setId": "REPLACE_FROM_CONFIRMED_BINDING",
+      "platform": "PS5"
+    },
+    {
+      "title": "Graveyard Keeper 2",
+      "setId": "REPLACE_FROM_CONFIRMED_BINDING",
+      "platform": "PS5"
+    },
+    {
+      "title": "Resident Evil Requiem",
+      "setId": "REPLACE_FROM_CONFIRMED_BINDING",
+      "platform": "PS5"
+    },
+    {
+      "title": "The Witcher 3: Wild Hunt",
+      "setId": "REPLACE_FROM_CONFIRMED_BINDING",
+      "platform": "PS5"
+    }
+  ],
+  "scheduledSyncEnabled": false,
+  "scheduleIntervalMs": 21600000,
+  "mobileClientId": "companion-android"
+}

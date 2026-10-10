@@ -1,0 +1,22 @@
+name: platinum_companion
+description: Private offline trophy companion with validated snapshot import.
+publish_to: none
+version: 0.7.0+12
+environment:
+  sdk: ^3.13.5
+dependencies:
+  crypto: 3.0.7
+  flutter_appauth: 12.1.0
+  flutter_secure_storage: 11.2.0
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+dev_dependencies:
+  integration_test:
+    sdk: flutter
+  flutter_test:
+    sdk: flutter
+  flutter_lints: 6.0.0
+flutter:
+  uses-material-design: true

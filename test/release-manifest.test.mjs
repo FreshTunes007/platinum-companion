@@ -1,0 +1,14 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {generateKeyPairSync,sign,createHash} from 'node:crypto';
+import {validateRelease,verifyRelease,assertArtifact} from '../src/release-manifest.mjs';
+const {publicKey,privateKey}=generateKeyPairSync('rsa',{modulusLength:2048});
+const publicDer=publicKey.export({type:'spki',format:'der'}).toString('base64');
+const bytes=Buffer.from('synthetic APK test bytes');
+const base={schemaVersion:1,appId:'test-app',packageName:'app.test.app',versionName:'1.0.0',versionCode:2,releaseSequence:5,minimumAndroidVersion:24,apkSize:bytes.length,sha256:createHash('sha256').update(bytes).digest('hex'),signingCertificateSha256:'a'.repeat(64),apkUrl:'https://freshoryx.com/downloads/test-app/app.apk',releaseChannel:'stable',releaseDate:'2026-10-09T00:00:00.000Z',expiresAt:'2026-11-09T00:00:00.000Z',mandatoryUpdate:false,changelog:['test']};
+const envelope=(p=base)=>{const payload=Buffer.from(JSON.stringify(p));return {schemaVersion:1,algorithm:'RS256',keyId:'freshoryx-rsa-2026',payload:payload.toString('base64'),signature:sign('RSA-SHA256',payload,privateKey).toString('base64')};};
+const now=Date.parse('2026-10-10');
+test('signed manifest accepts intact APK and rejects corrupted artifact',()=>{const p=verifyRelease(envelope(),publicDer,{now});assertArtifact(p,bytes);assert.throws(()=>assertArtifact(p,Buffer.from('tampered')));});
+test('signature tampering, unknown key, expiry and stale sequence fail closed',()=>{const e=envelope();for(const changed of [{...e,payload:Buffer.from(JSON.stringify({...base,versionCode:999})).toString('base64')},{...e,keyId:'unknown'}])assert.throws(()=>verifyRelease(changed,publicDer,{now}));assert.throws(()=>verifyRelease(e,publicDer,{now,highestSequence:6}));assert.throws(()=>verifyRelease(e,publicDer,{now:Date.parse('2026-12-01')}));});
+test('release redirects and untrusted destinations are forbidden',()=>{for(const apkUrl of ['http://freshoryx.com/app.apk','https://evil.test/app.apk','https://freshoryx.com/downloads/test-app/app.apk?token=x','https://user@freshoryx.com/downloads/test-app/app.apk'])assert.throws(()=>validateRelease({...base,apkUrl}));});
+test('withdrawal uses a newer manifest sequence without forging a newer APK code',()=>{const p=verifyRelease(envelope({...base,versionCode:1,releaseSequence:6}),publicDer,{now,highestSequence:5});assert.equal(p.versionCode,1);assert.ok(p.versionCode<=2,'installed-version comparison must not offer this downgrade');});
