@@ -11,7 +11,8 @@ import 'chatgpt_plan_loopback.dart';
 import 'chatgpt_plan_protocol.dart';
 
 // Set only after a reviewed source release has actually been published.
-const planSourceRepository = 'https://github.com/FreshTunes007/platinum-companion';
+const planSourceRepository =
+    'https://github.com/FreshTunes007/platinum-companion';
 const planNative = MethodChannel('platinum_companion/chatgpt');
 typedef PlanSignatureVerifier = Future<bool> Function(Map<String, String>);
 
@@ -221,6 +222,8 @@ class ChatGptPlanClient {
   List<Map<String, String>> models = [];
   Future<void>? _refreshing;
   bool busy = false;
+  bool get pendingVerification =>
+      _vault['pendingLogin'] != null || _vault['pendingRefresh'] != null;
   bool get eligible => planSourceRepository.startsWith('https://github.com/');
   List<Map<String, String>> get accounts => [
     for (final e in (_vault['accounts'] as Map).entries)
@@ -318,6 +321,12 @@ class ChatGptPlanClient {
     busy = true;
     PlanLoopback? listener;
     try {
+      if (_vault['pendingLogin'] is Map) {
+        await _finishLogin(
+          Map<String, dynamic>.from(_vault['pendingLogin'] as Map),
+        );
+        return;
+      }
       final previous = key == null
           ? null
           : (_vault['accounts'] as Map)[key] as Map<String, dynamic>?;
@@ -341,28 +350,48 @@ class ChatGptPlanClient {
           selectedPrivateClientApproved: true,
         ),
       );
-      final accepted = await _accept(
-        tokens,
-        result.clientId,
-        nonce: listener.attempt.nonce,
-        previous: previous,
-      );
-      final registration = '${accepted['client_id']}:${accepted['subject']}';
-      await _save({
-        ..._vault,
-        'active': registration,
-        'accounts': {..._vault['accounts'] as Map, registration: accepted},
-      });
-      models = [];
-      if (granted) await loadModels();
+      final pending = {
+        'tokens': tokens,
+        'client': result.clientId,
+        'nonce': listener.attempt.nonce,
+        'previousKey': key,
+      };
+      // Keep received credentials encrypted but unusable across a JWKS outage.
+      // An authorization code or consumed refresh token is never replayed.
+      await _save({..._vault, 'pendingLogin': pending});
+      await _finishLogin(pending);
     } finally {
       await listener?.close();
       busy = false;
     }
   }
 
+  Future<void> _finishLogin(Map<String, dynamic> pending) async {
+    final previous =
+        (_vault['accounts'] as Map)[pending['previousKey']]
+            as Map<String, dynamic>?;
+    final accepted = await _accept(
+      Map<String, dynamic>.from(pending['tokens'] as Map),
+      pending['client'],
+      nonce: pending['nonce'],
+      previous: previous,
+    );
+    final registration = '${accepted['client_id']}:${accepted['subject']}';
+    final next = {
+      ..._vault,
+      'active': registration,
+      'accounts': {..._vault['accounts'] as Map, registration: accepted},
+    }..remove('pendingLogin');
+    await _save(next);
+    models = [];
+    if (granted) await loadModels();
+  }
+
   Future<void> select(String key) async {
-    if (busy || _refreshing != null || !(_vault['accounts'] as Map).containsKey(key)) {
+    if (busy ||
+        _refreshing != null ||
+        _vault['pendingRefresh'] != null ||
+        !(_vault['accounts'] as Map).containsKey(key)) {
       throw const PlanUsageFailure('busy');
     }
     await _save({..._vault, 'active': key});
@@ -374,19 +403,29 @@ class ChatGptPlanClient {
     if (previous == null || previous['refresh_token'] is! String) {
       throw const PlanUsageFailure('reauth_required');
     }
-    final tokens = await http.json(
-      'https://auth.openai.com/api/accounts/oauth/token',
-      form: planRefreshBody(previous['client_id'], previous['refresh_token']),
-    );
+    var pending = _vault['pendingRefresh'] as Map?;
+    if (pending != null && pending['key'] != key) {
+      throw const PlanUsageFailure('account_refresh_pending');
+    }
+    if (pending == null) {
+      final tokens = await http.json(
+        'https://auth.openai.com/api/accounts/oauth/token',
+        form: planRefreshBody(previous['client_id'], previous['refresh_token']),
+      );
+      pending = {'key': key, 'tokens': tokens};
+      await _save({..._vault, 'pendingRefresh': pending});
+    }
     final accepted = await _accept(
-      tokens,
+      Map<String, dynamic>.from(pending['tokens'] as Map),
       previous['client_id'],
       previous: previous,
     );
-    await _save({
-      ..._vault,
-      'accounts': {..._vault['accounts'] as Map, key: accepted},
-    });
+    await _save(
+      {
+        ..._vault,
+        'accounts': {..._vault['accounts'] as Map, key: accepted},
+      }..remove('pendingRefresh'),
+    );
   }
 
   Future<String> access() async {
@@ -394,7 +433,8 @@ class ChatGptPlanClient {
       throw const PlanUsageFailure('reauth_required');
     }
     final expiry = DateTime.tryParse(account!['expires'] ?? '');
-    if (expiry == null ||
+    if (_vault['pendingRefresh'] != null ||
+        expiry == null ||
         expiry.isBefore(DateTime.now().add(const Duration(minutes: 2)))) {
       _refreshing ??= _refresh();
       try {
@@ -446,8 +486,35 @@ class ChatGptPlanClient {
     busy = true;
     var revoked = false;
     try {
-      final value = account, key = _vault['active'];
-      if (value != null && value['refresh_token'] is String) {
+      final key = _vault['active'];
+      final pendingLogin = _vault['pendingLogin'] as Map?;
+      final pendingRefresh = _vault['pendingRefresh'] as Map?;
+      final selected = account;
+      final candidates = <Map<String, dynamic>>[
+        if (selected != null) Map<String, dynamic>.from(selected),
+        if (pendingLogin != null)
+          {
+            'client_id': pendingLogin['client'],
+            'refresh_token': pendingLogin['tokens']?['refresh_token'],
+          },
+        if (pendingRefresh != null && selected != null)
+          {
+            ...selected,
+            'refresh_token':
+                pendingRefresh['tokens']?['refresh_token'] ??
+                selected['refresh_token'],
+          },
+      ];
+      final seen = <String>{};
+      revoked = candidates.isNotEmpty;
+      for (final value in candidates) {
+        if (value['refresh_token'] is! String) {
+          revoked = false;
+          continue;
+        }
+        if (!seen.add('${value['client_id']}:${value['refresh_token']}')) {
+          continue;
+        }
         try {
           final discovery = await http.json(
             'https://auth.openai.com/.well-known/openid-configuration',
@@ -465,25 +532,27 @@ class ChatGptPlanClient {
               'client_id': value['client_id'],
             },
           );
-          revoked = true;
         } catch (_) {
           revoked = false;
         }
       }
-      if (value != null) {
-        await _save({
-          ..._vault,
-          'accounts': {
-            ..._vault['accounts'] as Map,
-            key: {
-              'client_id': value['client_id'],
-              'subject': value['subject'],
-              'email': value['email'],
+      await _save(
+        {
+            ..._vault,
+            'accounts': {
+              ..._vault['accounts'] as Map,
+              if (selected != null && key is String)
+                key: {
+                  'client_id': selected['client_id'],
+                  'subject': selected['subject'],
+                  'email': selected['email'],
+                },
             },
-          },
-          'active': null,
-        });
-      }
+            'active': null,
+          }
+          ..remove('pendingLogin')
+          ..remove('pendingRefresh'),
+      );
       models = [];
       return revoked;
     } finally {

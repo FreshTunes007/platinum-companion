@@ -10,7 +10,8 @@
     "test": "node --test test/*.test.mjs",
     "mcp:remote": "node scripts/serve-remote.mjs",
     "psn:auth": "node scripts/psn-auth.mjs",
-    "snapshot:android": "node scripts/export-android-snapshot.mjs"
+    "snapshot:android": "node scripts/export-android-snapshot.mjs",
+    "demo": "node scripts/create-demo-snapshot.mjs"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "1.31.0",

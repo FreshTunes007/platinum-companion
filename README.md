@@ -36,3 +36,5 @@ Requires Node.js >=24 (SQLite API). Core modules are in `src/`. `test/fixtures.m
 Sony alone confirms earned trophies. Imported snapshots retain their provenance and dates. Game events require player confirmation; inferred AI replies cannot overwrite confirmed facts. The trophy library is not the user's complete store purchase inventory. Limited Knowledge Packs disclose uncertainty instead of claiming complete platinum coverage.
 
 MIT applies to our original code. See THIRD_PARTY_NOTICES.md for dependencies, Sony metadata/artwork and service restrictions. Not affiliated with Sony or OpenAI.
+
+Generate original demo data with npm run demo, then transfer private/demo-library.json separately and import it using the Android file picker. It is explicitly imported/synthetic, not Sony-confirmed progress. No artwork or credentials are included.

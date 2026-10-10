@@ -156,6 +156,20 @@ class _ChatGptPlanPageState extends State<ChatGptPlanPage> {
           icon: const Icon(Icons.login),
           label: const Text('Continue with ChatGPT'),
         ),
+        if (client.pendingVerification)
+          const Text(
+            'Полученные credentials защищённо сохранены, но ещё не прошли проверку. AI-запросы с ними заблокированы; продолжите подключение или отмените его.',
+          ),
+        if (client.pendingVerification && client.account == null)
+          TextButton(
+            onPressed: busy
+                ? null
+                : () => _operate(() async {
+                    final revoked = await client.logout();
+                    notice = revoked ? 'Незавершённая сессия отозвана.' : 'Локальная сессия очищена. Отзыв в OpenAI не подтверждён.';
+                  }),
+            child: const Text('Отменить незавершённое подключение'),
+          ),
         if (client.account != null) ...[
           Text(
             '${client.account!['email'] ?? 'ChatGPT'} · отдельное подключение на устройстве',
