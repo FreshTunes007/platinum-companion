@@ -11,7 +11,7 @@ import 'chatgpt_plan_loopback.dart';
 import 'chatgpt_plan_protocol.dart';
 
 // Set only after a reviewed source release has actually been published.
-const planSourceRepository = '';
+const planSourceRepository = 'https://github.com/FreshTunes007/platinum-companion';
 const planNative = MethodChannel('platinum_companion/chatgpt');
 typedef PlanSignatureVerifier = Future<bool> Function(Map<String, String>);
 
@@ -314,7 +314,7 @@ class ChatGptPlanClient {
 
   Future<void> login({String? key}) async {
     if (!eligible) throw const PlanUsageFailure('client_eligibility_pending');
-    if (busy) throw const PlanUsageFailure('busy');
+    if (busy || _refreshing != null) throw const PlanUsageFailure('busy');
     busy = true;
     PlanLoopback? listener;
     try {
@@ -362,7 +362,7 @@ class ChatGptPlanClient {
   }
 
   Future<void> select(String key) async {
-    if (busy || !(_vault['accounts'] as Map).containsKey(key)) {
+    if (busy || _refreshing != null || !(_vault['accounts'] as Map).containsKey(key)) {
       throw const PlanUsageFailure('busy');
     }
     await _save({..._vault, 'active': key});
@@ -421,7 +421,7 @@ class ChatGptPlanClient {
     required bool consent,
     void Function(String)? onDelta,
   }) async {
-    if (busy) throw const PlanUsageFailure('busy');
+    if (busy || _refreshing != null) throw const PlanUsageFailure('busy');
     busy = true;
     try {
       final token = await access();
@@ -442,7 +442,7 @@ class ChatGptPlanClient {
   }
 
   Future<bool> logout() async {
-    if (busy) throw const PlanUsageFailure('busy');
+    if (busy || _refreshing != null) throw const PlanUsageFailure('busy');
     busy = true;
     var revoked = false;
     try {
